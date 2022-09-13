@@ -1,7 +1,6 @@
 package ru.netology.web.page;
 
 import com.codeborne.selenide.SelenideElement;
-import ru.netology.web.data.DataHelper;
 
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
@@ -28,13 +27,14 @@ public class DashboardPage {
         return new CardReplenishmentPage();
     }
 
-    public static DashboardPage balanceOfCard1() {
-        balanceCard1.text();
-        return new DashboardPage();
+    public static String balanceOfCard1() {
+        String balanceOfCard = balanceCard1.text();
+        return balanceOfCard;
     }
-    public static DashboardPage balanceOfCard2() {
-        balanceCard2.text();
-        return new DashboardPage();
+
+    public static String balanceOfCard2() {
+        String balanceOfCard = balanceCard2.text();
+        return balanceOfCard;
     }
 
     public DashboardPage update() {
