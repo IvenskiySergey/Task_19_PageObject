@@ -22,7 +22,7 @@ dependencies {
     testImplementation 'io.rest-assured:rest-assured:4.3.0'
     compileOnly 'org.projectlombok:lombok:1.18.24'
     annotationProcessor 'org.projectlombok:lombok:1.18.24'
-
+    testImplementation 'junit:junit:4.13'
     testCompileOnly 'org.projectlombok:lombok:1.18.24'
     testAnnotationProcessor 'org.projectlombok:lombok:1.18.24'
 }

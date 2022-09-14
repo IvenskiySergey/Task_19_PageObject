@@ -1,5 +1,6 @@
 package ru.netology.web.ru.netology.test;
 
+import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 import ru.netology.web.data.DataHelper;
 import ru.netology.web.page.DashboardPage;
@@ -19,9 +20,12 @@ public class MoneyTransferTest {
         var verificationPage = loginPage.validLogin(authInfo);
         var verificationCode = DataHelper.getVerificationCode(authInfo);
         verificationPage.validVerify(verificationCode);
+        var firstBalanceCardOld = DashboardPage.getFirstCardBalance();
         var cardReplenishmentPage = DashboardPage.replenishmentCard0001();
         var cardNumber = DataHelper.CardNumber.getCardNumber2();
-        cardReplenishmentPage.topUpCard("11000", cardNumber.getCardNumber());
+        cardReplenishmentPage.topUpCard("1000", cardNumber.getCardNumber());
         $("[data-test-id=dashboard]").shouldBe(visible);
+        var firstBalanceCardNew = DashboardPage.getFirstCardBalance();
+        Assert.assertEquals(firstBalanceCardNew, firstBalanceCardOld + 1000);
     }
 }
