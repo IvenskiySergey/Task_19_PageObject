@@ -21,11 +21,14 @@ public class MoneyTransferTest {
         var verificationCode = DataHelper.getVerificationCode(authInfo);
         verificationPage.validVerify(verificationCode);
         var firstBalanceCardOld = DashboardPage.getFirstCardBalance();
+        var secondBalanceCardOld = DashboardPage.getSecondCardBalance();
         var cardReplenishmentPage = DashboardPage.replenishmentCard0001();
         var cardNumber = DataHelper.CardNumber.getCardNumber2();
         cardReplenishmentPage.topUpCard("1000", cardNumber.getCardNumber());
         $("[data-test-id=dashboard]").shouldBe(visible);
         var firstBalanceCardNew = DashboardPage.getFirstCardBalance();
+        var secondBalanceCardNew = DashboardPage.getSecondCardBalance();
         Assert.assertEquals(firstBalanceCardNew, firstBalanceCardOld + 1000);
+        Assert.assertEquals(secondBalanceCardNew, secondBalanceCardOld - 1000);
     }
 }
