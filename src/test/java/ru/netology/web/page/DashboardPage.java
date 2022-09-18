@@ -20,27 +20,27 @@ public class DashboardPage {
         heading.shouldBe(visible);
     }
 
-    public static CardReplenishmentPage replenishmentCard0001() {
+    public CardReplenishmentPage replenishmentCard0001() {
         topUp0001.click();
         return new CardReplenishmentPage();
     }
 
-    public static CardReplenishmentPage replenishmentCard0002() {
+    public CardReplenishmentPage replenishmentCard0002() {
         topUp0002.click();
         return new CardReplenishmentPage();
     }
 
-    public static int getFirstCardBalance() {
+    public int getFirstCardBalance() {
         String balanceOfCard = balanceCard1.text();
-        return extractBalance (balanceOfCard);
+        return extractBalance(balanceOfCard);
     }
 
-    public static int getSecondCardBalance() {
+    public int getSecondCardBalance() {
         String balanceOfCard = balanceCard2.text();
-        return extractBalance (balanceOfCard);
+        return extractBalance(balanceOfCard);
     }
 
-    private static int extractBalance(String text) {
+    private int extractBalance(String text) {
         val start = text.indexOf(balanceStart);
         val finish = text.indexOf(balanceFinish);
         val value = text.substring(start + balanceStart.length(), finish);
